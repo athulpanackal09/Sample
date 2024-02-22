@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+<thead>
+<th>Playlist Id</th>
+<th>Playlist Name</th>
+<th>PlaylistSongs</th>
+</thead>
+
+
+<tbody>
+<tr th:each="pl: ${plist}">
+<td th:text="${pl.id}"></td>
+<td th:text="${pl.name}"></td>
+<td>
+<ul>
+<li th:each="s: ${pl.song}">
+	<span th:text="${s.name}"></span>
+	<br/><br/>
+	<audio controls>
+		<source th:src="${s.link}" type="audio/mpeg">
+	</audio>
+</li>
+</ul>
+
+</td>
+</tr>
+</tbody>
+
+</table>
+</body>
+</html>
